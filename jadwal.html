@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>reservasi-tiket</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style_menu.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: white;
+            color: #333;
+        }
+
+        main {
+            width: 90%;
+            margin: auto;
+            padding: 20px;
+        }
+
+        img {
+            width: 85%;
+            margin-bottom: 2rem;
+            margin-left: 7%;
+        }
+
+        .header-section p {
+            color: #878787;
+            font-size: 12px;
+            margin-bottom: 4px;
+            text-align: center;
+        }
+
+        .header-section strong {
+            color: #333;
+            font-size: 16px;
+        }
+
+        .divider {
+            width: 100%;
+            height: 1px;
+            background-color: #e0e0e0;
+            margin: 20px 0;
+        }
+        .header-section {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin-bottom: 20px;
+            padding: 0 5%;
+            width: 50%;
+            margin-left: -4.5%;
+        }
+
+        .section-item {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .table {
+            width: 90%;
+            margin: 20px 0;
+            border-collapse: collapse;
+        }
+
+        .table th {
+            color: #666;
+            font-weight: normal;
+            padding: 15px 10px;
+            text-align: left;
+            border-bottom: 1px solid #e0e0e0;
+            font-size: 12px;
+        }
+
+        .table td {
+            padding: 20px 20px;
+            border-bottom: 1px solid #e0e0e0;
+            vertical-align: top;
+            width: 20%;
+        }
+
+        .table small {
+            color: #a1a1a1;
+            font-size: 12px;
+        }
+
+        .button {
+            background-color: #d9534f;
+            color: white;
+            border: none;
+            padding: 8px 24px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            margin-top: 15%;
+        }
+
+        .sold-out {
+            color: #fa0800;
+            font-weight: bold;
+            margin-top: 14%;
+        }
+
+        p{
+            font-size: 12px;
+            width: 50%;
+            margin-top: 10px;
+            color: #a1a1a1;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="navbar">
+        <div class="logo" style="margin-left: 6.3%;">PELNI</div>
+        <nav class="menu">
+            <a href="reservasi.html" style="margin-left: -10.9%;">Reservasi Tiket</a>
+            <a href="jasa.html">Jasa Logistik</a>
+            <a href="layanan.html">Layanan</a>
+        </nav>
+    </header>
+    <main>
+        <img src="img/cover_w1920_h380_tw1923_th381_x17_y10_banner channel pembayaran new.jpg" alt="Channel Pembayaran">
+
+        <div class="header-section">
+            <div class="section-item">
+                <p>Pelabuhan Asal</p>
+                <p style="font-size: 30px; color: #333;">AMBON</p>
+                <p>Desember 2024</p>
+            </div>
+            <img src="img/arrow.png" alt="arah" style="width: 30px; margin-top: 85%; margin-left: 50%;">
+            <div class="section-item" style="margin-left: 20%;">
+                <p>Pelabuhan Tujuan</p>
+                <p style="font-size: 30px; color: #333;">SURABAYA</p>
+                <p>1 Dewasa</p>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Kapal</th>
+                    <th>Berangkat</th>
+                    <th></th>
+                    <th>Sampai</th>
+                    <th>Lama Perjalanan</th>
+                    <th>Total Harga</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>(NP-106-A8) <br>KM.TIDAR<br><small>EKONOMI EKS KABIN KLS 3 / C</small></td>
+                    <td>22:00<br> <p class="p">Jumat, 13 Desember 2024</p></td>
+                    <td><img src="img/arrow.png" alt="panah" style="width: 20px; margin-top: 20%;"></td>
+                    <td>15:00<br><p class="p">Selasa, 17 Desember 2024</p></td>
+                    <td>3 hari 17 <br>jam 00 menit <p class="p">Transit</p></td>
+                    <td>Rp.653.000 <br><span class="sold-out">Habis</span></td>
+                </tr>
+                <tr>
+                    <td>(NP-131-1) KM.LABOBAR<br><small>KELAS EKONOMI / E</small></td>
+                    <td>05:00<br><p class="p">Senin, 23 Desember 2024</p></td>
+                    <td><img src="img/arrow.png" alt="panah" style="width: 20px; margin-top: 20%;"></td>
+                    <td>22:00<br><p class="p">Jumat, 27 Desember 2024</p></td>
+                    <td>4 hari 15 <br>jam 00 menit<p class="p">Transit</p></td>
+                    <td>Rp.742.000<button class="button" onclick="window.location.href='pesan.html'">Pilih</button></td>
+                </tr>
+                <tr>
+                    <td>(NP-110-1P) KM.CIREMAI<br><small>KELAS EKONOMI / E</small></td>
+                    <td>16:00<br><p class="p">Selasa, 24 Desember 2024</p></td>
+                    <td><img src="img/arrow.png" alt="panah" style="width: 20px; margin-top: 20%;"></td>
+                    <td>00:01<br><p class="p">Sabtu, 28 Desember 2024</p></td>
+                    <td>3 hari 08 <br>jam 01 menit<p class="p">Transit</p></td>
+                    <td>Rp.653.000 <br><span class="sold-out">Habis</span></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="divider"></div>
+
+        <div style="width: 115%; height: 0.5px; background-color: rgb(145, 145, 145); margin: 0; margin-top: 6%; margin-left: -8%;"></div>
+        <footer style="margin-top: 1%;">
+            <div class="alamat">
+                <h4>PT PELNI (Persero) HQ</h4>
+                <p>Jl. Gajah Mada No. 14,<br>
+                    Jakarta Pusat, 10130<br>
+                    DKI Jakarta, Indonesia</p>
+            </div>
+
+            <div class="kontak">
+                <h4>Kontak Pusat</h4>
+                <p>T. 162 (Jabodetabek)<br>
+                    F. +62 21 6385 4130<br>
+                    E. infopelni162@pelni.co.id</p>
+            </div>
+
+            <div class="link">
+                <p>PPID</p>
+                <p>TENDER</p>
+                <p>KARIR</p>
+                <p>FAQ</p>
+                <p>Kantor Cabang</p>
+            </div>
+
+            <div class="medsos">
+                <h4>Media Sosial Kami</h4>
+                <div class="social-icons">
+                    <img src="img/instagram.png" alt="Instagram">
+                    <img src="img/social.png" alt="YouTube">
+                    <img src="img/facebook.png" alt="Facebook">
+                    <img src="img/twitter-alt.png" alt="Twitter">
+                </div>
+            </div>
+        </footer>
+        <div class="decorative-rectangle" style="width: 115.5%; margin-left: -8%;"></div>
+    </main>
+</body>
+
+</html>

@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style_menu.css">
+    <title>Home PELNI</title>
+    <style>
+        .popup-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .popup {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+        }
+
+        .popup img {
+            width: 90px;
+            height: 90px;
+            margin-bottom: 1rem;
+            margin-left: -2%;
+            margin-top: 2%;
+        }
+
+        .popup h1 {
+            margin-bottom: 1rem;
+        }
+
+        .popup p {
+            margin-bottom: 1.5rem;
+            color: #666;
+        }
+
+        .popup button {
+            background-color: #D38282;
+            color: white;
+            padding: 0.5rem 2rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            margin-left: 15rem;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="navbar">
+        <div class="logo"><a href="home.html" style="text-decoration: none; color: #D38282;">PELNI</a></div>
+        <nav class="menu">
+            <a href="reservasi.html" style="margin-left: -30%;">Reservasi Tiket</a>
+            <a href="jasa logistik.html">Jasa Logistik</a>
+            <a href="layanan.html">Layanan</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <div class="hero-text">
+                <img src="img/pelni_bg.jpg" alt="Partners">
+            </div>
+            <div class="reservation-form">
+                <h2>Reservasi Tiket Anda</h2>
+                <form>
+                    <label>Dari</label>
+                    <select>
+                        <option>Pilih Asal Kota/Pelabuhan</option>
+                        <option>Ambon</option>
+                    </select>
+                    <label>Ke</label>
+                    <select>
+                        <option>Pilih Tujuan Kota/Pelabuhan</option>
+                        <option>Surabaya</option>
+                    </select>
+                    <label>Keberangkatan</label>
+                    <input type="date" style="width: 63%;">
+                    <!-- Flexbox untuk Dewasa dan Bayi -->
+                    <div style="display: flex; gap: 10px; margin-top: 10px;">
+                        <input type="number" placeholder="Dewasa"
+                            style=" width: 21%; background: url(img/partner_5387717.png) no-repeat 15px center; 
+                                                                    background-size: 20px 20px; padding-left: 40px; text-align: center;">
+
+                        <input type="number" placeholder="Bayi"
+                            style=" width: 21%; background: url(img/crawling_3011749.png) no-repeat 15px center; 
+                                                                    background-size: 20px 20px; padding-left: 40px; text-align: center;">
+                    </div>
+                    <button type="submit">Cari Pelayaran</button>
+                </form>
+                <a href="cek_pemesanan.html" style="margin-left: 25%;">Cek Pemesanan</a>
+            </div>
+        </section>
+
+        <!-- Pop-up -->
+        <div class="popup-overlay" id="errorPopup">
+            <div class="popup">
+                <img src="img/cross_12503683.png" alt="Error">
+                <h1>Whoops!</h1>
+                <p id="errorMessage">Mohon untuk melengkapi data terlebih dahulu</p>
+                <button onclick="closePopup()">OK</button>
+            </div>
+        </div>
+
+        <div class="service-card-1">
+            <h3
+                style="margin-top: 10%; font-weight: 700; color: #9e3737; font-size: 20px; font-family: 'Inter-Bold', Helvetica;">
+                Jasa Logistik</h3>
+            <p style="font-size: 30px; font-weight: 700; font-style: italic; margin-top: -3%;">Melayani Jasa Logistik ke
+                Lebih Dari 90 Pelabuhan</p>
+            <p style="margin-left: 7%; font-size: 14px; color: #808080; margin-bottom: 15%;">
+                Melayani pengangkutan paket barang, dry/reefer container, general cargo, kendaraan maupun penyewaan
+                kapal angkutan komersial.</p>
+            <a href="jasa logistik.html">Lihat Selengkapnya</a>
+        </div>
+        <img src="img/kargo.png" alt="Jasa Logistik"
+            style="width: 60%; margin-left: -3%; margin-top: -25%; z-index: -1;">
+
+        <div class="service-card">
+            <br>
+            <h3
+                style="margin-top: 7%; font-weight: 700; color: #9e3737; font-size: 20px; font-family: 'Inter-Bold', Helvetica;">
+                Lifestyle on Board</h3>
+            <br>
+            <p style="font-size: 30px; font-weight: 700; font-style: italic; margin-top: -3%; width: 30%;">Semua Bisa di
+                Atas Kapal PELNI</p>
+            <br>
+            <p style="margin-left: 5%; font-size: 14px; color: #808080; width: 30%;">Kapal PELNI dilengkapi dengan
+                fasilitas lengkap untuk MICE (meeting, incentive, convention and exhibition). Nikmati pengalaman
+                berwisata bahari dengan pantai-pantai dan alam bawah laut paling indah di Indonesia.</p>
+            <br><a href="layanan.html" style="">Lihat Selengkapnya</a>
+            <div class="image-container">
+                <img src="img/cover_w535.jpeg" alt="Lifestyle on Board">
+                <img src="img/cover_w535_layanan2.jpg" alt="Lifestyle on Board">
+            </div>
+        </div>
+
+        <section class="additional-services">
+            <h3 class="section-title">Layanan</h3>
+            <p class="section-subtitle">Layanan Lainnya</p>
+            <p class="section-description">
+                Bisnis penunjang dan unit bisnis strategis PT PELNI dari keagenan dan galangan kapal, perhotelan serta
+                penyewaan aset
+            </p>
+
+            <div class="additional-service-cards">
+                <div class="card">
+                    <img src="img/bahtera_Hotel.jpg" alt="Hotel Bahtera">
+                    <div class="card-content">
+                        <h3>Hotel Bahtera</h3>
+                        <p>Lokasi strategis di Cipayung, Puncak, Jawa Barat</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="img/gelangan_surya.jpeg" alt="Gelangan Surya">
+                    <div class="card-content">
+                        <h3>Gelangan Surya</h3>
+                        <p>Menangani dok kapal hingga 500 GT</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="img/asset.jpg" alt="PELNI Asset">
+                    <div class="card-content">
+                        <h3>PELNI Asset</h3>
+                        <p>Aset gedung Pelni Tersebar di seluruh Indonesia</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="img/keagenan.jpg" alt="Keagenan Kapal">
+                    <div class="card-content">
+                        <h3>Keagenan Kapal</h3>
+                        <p>Keagenan adalah salah satu Bisnis Unit PT PELNI (Persero)</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="keagenan-card">
+            <img src="img/cover_w1920_h580_bottom-highlight.jpg" alt="keagenan">
+            <div class="card-content-1">
+                <h3>KEAGENAN KAPAL</h3>
+                <h1>Menjangkau Seluruh<br>Perairan Indonesia</h1>
+                <p>Menangani keagenan kapal domestik hingga kapal asing, mulai dari pengurusan perijinan, kebutuhan
+                    bunker dan kebutuhan lainnya atas perjalanan pelayaran selama berada di wilayah perairan maupun
+                    daratan Indonesia</p>
+            </div>
+        </div>
+
+        <footer>
+            <div class="alamat">
+                <h3>PT PELNI (Persero) HQ</h3>
+                <p>Jl. Gajah Mada No. 14,<br>
+                    Jakarta Pusat, 10130<br>
+                    DKI Jakarta, Indonesia</p>
+            </div>
+
+            <div class="kontak">
+                <h3>Kontak Pusat</h3>
+                <p>T. 162 (Jabodetabek)<br>
+                    F. +62 21 6385 4130<br>
+                    E. infopelni162@pelni.co.id</p>
+            </div>
+
+            <div class="link">
+                <p>PPID</p>
+                <p>TENDER</p>
+                <p>KARIR</p>
+                <p>FAQ</p>
+                <p>Kantor Cabang</p>
+            </div>
+
+            <div class="medsos">
+                <h3>Media Sosial Kami</h3>
+                <div class="social-icons">
+                    <img src="img/instagram.png" alt="Instagram">
+                    <img src="img/social.png" alt="YouTube">
+                    <img src="img/facebook.png" alt="Facebook">
+                    <img src="img/twitter-alt.png" alt="Twitter">
+                </div>
+            </div>
+        </footer>
+        <div class="decorative-rectangle" style="margin-left: 1%;"></div>
+    </main>
+
+    <script>
+        // Wait for DOM to be fully loaded
+        document.addEventListener('DOMContentLoaded', function () {
+            // Get form and popup elements
+            const form = document.querySelector('.reservation-form form');
+            const popup = document.getElementById('errorPopup');
+            const errorMessage = document.getElementById('errorMessage');
+
+            // Add submit event listener to form
+            form.addEventListener('submit', function (e) {
+                // Prevent default form submission
+                e.preventDefault();
+
+                // Get all form input values
+                const dari = form.querySelector('select:first-of-type').value;
+                const ke = form.querySelector('select:last-of-type').value;
+                const tanggal = form.querySelector('input[type="date"]').value;
+                const dewasa = form.querySelector('input[placeholder="Dewasa"]').value;
+                const bayi = form.querySelector('input[placeholder="Bayi"]').value;
+
+                // Validate each field and show appropriate error message
+                if (dari === "Pilih Asal Kota/Pelabuhan" || dari === "") {
+                    showPopup('Pilih pelabuhan asal terlebih dahulu!');
+                    return;
+                }
+
+                if (ke === "Pilih Tujuan Kota/Pelabuhan" || ke === "") {
+                    showPopup('Pilih pelabuhan tujuan terlebih dahulu!');
+                    return;
+                }
+
+                if (!tanggal) {
+                    showPopup('Pilih tanggal keberangkatan terlebih dahulu!');
+                    return;
+                }
+
+                if (!dewasa || dewasa <= 0) {
+                    showPopup('Tentukan jumlah penumpang dewasa terlebih dahulu!');
+                    return;
+                }
+
+                // If all validations pass, create URL parameters
+                const searchParams = new URLSearchParams({
+                    dari: dari,
+                    ke: ke,
+                    tanggal: tanggal,
+                    dewasa: dewasa,
+                    bayi: bayi || 0
+                });
+
+                // Redirect to jadwal page with parameters
+                window.location.href = `jadwal.html?${searchParams.toString()}`;
+            });
+
+            // Function to show popup with error message
+            function showPopup(message) {
+                errorMessage.textContent = message;
+                popup.style.display = 'flex';
+            }
+
+            // Function to close popup (make it available globally)
+            window.closePopup = function () {
+                popup.style.display = 'none';
+            };
+        });
+    </script>
+</body>
+
+</html>

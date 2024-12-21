@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informasi Data Pemesan</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style_menu.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        .section-1 {
+            display: flex;
+            gap: 7rem;
+            margin-bottom: 20px;
+        }
+
+        .section-2 {
+            margin-top: 20px;
+            width: 48.6%;
+            margin-bottom: 2%;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 15px;
+            font-size: 13px;
+        }
+
+        input {
+            width: 150%;
+            height: 80%;
+            border: 1px solid #ccc;
+            margin-bottom: 10%;
+        }
+
+        /* Atur tinggi dan lebar input khusus */
+        #phone {
+            width: 100%;
+            height: 80px;
+            margin-bottom: 8%;
+        }
+
+        #address {
+            width: 100%;
+            height: 80px;
+        }
+
+        .summary-section {
+            margin-top: 12%;
+            position: fixed;
+            top: 50px;
+            left: 60%;
+            width: 350px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            z-index: -1;
+        }
+
+        .summary-header {
+            background-color: #e8e1e1;
+            padding: 15px;
+            border-radius: 4px 4px 0 0;
+            display: flex;
+            gap: 60px;
+
+        }
+
+        .summary-header h3 {
+            gap: -2%;
+            font-size: 16px;
+            margin-left: 1.9rem;
+        }
+
+        .summary-content {
+            padding: 40px;
+            margin-left: 2%;
+            gap: 22px;
+        }
+
+        .route-details {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .schedule-container {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px 0;
+            gap: 40px;
+        }
+
+        .schedule {
+            flex: 1;
+            margin-bottom: 15px;
+            width: 30%;
+        }
+
+        .schedule-label {
+            color: #888;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        .schedule-time {
+            font-size: 14px;
+        }
+
+        .total {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+        }
+
+        .price {
+            color: #4CAF50;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .form-section {
+            margin-top: 10%;
+            margin-left: 7.5%;
+        }
+
+        .form-inpo {
+            width: 100%;
+            margin-top: 10%;
+            margin-left: 9%;
+        }
+
+        .form-inpo h2 {
+            margin-bottom: 20px;
+            font-size: 20px;
+        }
+
+        /* Row 1: Nama dan No Identitas */
+        .inpo-1 {
+            display: flex;
+            gap: 8%;
+            margin-bottom: 20px;
+        }
+
+        .inpo-1 label {
+            display: flex;
+            margin-bottom: 8px;
+            font-size: 13px;
+        }
+
+        .inpo-1 input {
+            width: 135%;
+            height: 35px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            padding: 8px;
+        }
+
+        /* Row 2: Tanggal Lahir dan Gender */
+        .inpo-2 {
+            display: flex;
+            gap: 12.2%;
+            margin-bottom: 20px;
+        }
+
+        .inpo-2>div {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .inpo-2 label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 13px;
+        }
+
+        .inpo-2 input {
+            width: 190%;
+            height: 35px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            padding: 8px;
+        }
+
+        /* Style khusus untuk input date */
+        input[type="date"] {
+            font-family: Arial, sans-serif;
+            color: #666;
+        }
+
+        .form-section h2 {
+            margin-bottom: 20px;
+            font-size: 20px;
+        }
+
+        .form-inpo button {
+            background-color: #b82837;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            width: 44%;
+            margin-bottom: 10%;
+        }
+
+        .popup-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .popup-content {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            width: 500px;
+            height: 350px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.304);
+        }
+
+        .popup-icon {
+            width: 125px;
+            height: 125px;
+            margin: 0 auto 20px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        /* Class khusus untuk icon error */
+        .popup-icon.error {
+            background-image: url(img/cross_12503683.png);
+        }
+
+        .popup-icon.confirm {
+            background-image: url(img/decision-making.png);
+        }
+
+        .popup-title {
+            font-size: 32px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .popup-message {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .popup-buttons {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            height: 15%;
+        }
+
+        .popup-button {
+            padding: 10px 40px;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .popup-button.pesan {
+            background-color: #b82837;
+            color: white;
+            width: 70%;
+            padding: 10px;
+        }
+
+        .popup-button.batal {
+            background-color: #E5989B;
+            color: white;
+            width: 70%;
+            padding: 10px;
+        }
+
+        #okButton {
+            margin-left: 60%;
+            margin-top: 1%;
+            background-color: #D38282;
+            color: white;
+        }
+
+        #okButton:hover {
+            background-color: #a05555;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="navbar">
+        <div class="logo">PELNI</div>
+        <nav class="menu">
+            <a href="reservasi.html" style="margin-left: -30%;">Reservasi Tiket</a>
+            <a href="jasa.html">Jasa Logistik</a>
+            <a href="layanan.html">Layanan</a>
+        </nav>
+    </header>
+    <main>
+        <div class="container">
+            <div class="form-section">
+                <h2>Informasi Data Pemesan</h2>
+                <div class="section-1">
+                    <div>
+                        <label for="name">Nama Pemesan</label>
+                        <input type="text" id="name" placeholder="Ex : Siti Clara">
+                    </div>
+                    <div>
+                        <label for="email">Email</label>
+                        <input type="text" id="email" placeholder="Ex : clarr@gmail.com">
+                    </div>
+                </div>
+                <div class="section-2">
+                    <br><br><label for="phone">Telepon</label>
+                    <input type="number" id="phone" placeholder="Ex : 081234567890" style="height: 50px; ">
+                    <label for="address">Alamat</label>
+                    <input type="text" id="address" placeholder="Ex : Jl. Kebon Jeruk No. 1">
+                </div>
+            </div>
+        </div>
+
+        <div class="summary-section">
+            <div class="summary-header">
+                <h3>AMBON</h3>
+                <h3>SURABAYA</h3>
+            </div>
+            <div class="summary-content">
+                <div class="route-details">
+                    <div>(NP-131-1) KM.LABOBAR</div>
+                    <div>KELAS EKONOMI/E</div>
+                </div>
+                <div class="schedule-container">
+                    <div class="schedule">
+                        <div class="schedule-label">Berangkat</div>
+                        <div class="schedule-time">Senin, 23 Desember 2024 Jam 05:00</div>
+                    </div>
+                    <div class="schedule">
+                        <div class="schedule-label">Tiba</div>
+                        <div class="schedule-time">Jumat, 27 Desember 2024 Jam 22:00</div>
+                    </div>
+                </div>
+                <div class="total">
+                    <div>
+                        <div>Total</div>
+                        <div>1 dewasa</div>
+                    </div>
+                    <div class="price">Rp. 742.000</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="inpo" style="margin-top: -5%;">
+            <div class="form-inpo">
+                <h2>Informasi Identitas Penumpang Dewasa</h2>
+                <div class="inpo-1">
+                    <div>
+                        <label for="name">Nama Penumpang</label>
+                        <input type="text" id="nama" placeholder="Ex : Siti Clara">
+                    </div>
+                    <div>
+                        <label for="iden">No. Identitas (KTP, SIM, PASSPORT, KIA)</label>
+                        <input type="number" id="iden" placeholder="Ex : 8988786" style="width: 100%;">
+                    </div>
+                </div>
+                <div class="inpo-2">
+                    <div>
+                        <label for="tgl">Tanggal Lahir</label>
+                        <input type="date" id="tgl">
+                    </div>
+                    <div>
+                        <label for="gender">Gender</label>
+                        <input type="text" id="gender" placeholder="Ex : Pria/Wanita" style="width: 135%;">
+                    </div>
+                </div>
+                <button>Lanjut</button>
+            </div>
+        </div>
+    </main>
+
+    <div id="universalPopup" class="popup-overlay">
+        <div class="popup-content">
+            <div class="popup-icon" id="popupIcon"></div>
+            <div id="popupTitle" class="popup-title">Title</div>
+            <div id="popupMessage" class="popup-message">Message</div>
+            <div class="popup-buttons">
+                <!-- Buttons akan ditampilkan/disembunyikan sesuai kebutuhan -->
+                <button id="confirmButton" class="popup-button pesan">Pesan</button>
+                <button id="cancelButton" class="popup-button batal">Batal</button>
+                <button id="okButton" class="popup-button">OK</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Konfigurasi ikon
+        const ICONS = {
+            error: '<path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>',
+            confirm: '<path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>'
+        };
+
+        // Fungsi untuk menampilkan popup
+        function showPopup(config) {
+            const popup = document.getElementById('universalPopup');
+            const title = document.getElementById('popupTitle');
+            const message = document.getElementById('popupMessage');
+            const iconDiv = document.getElementById('popupIcon');
+            const confirmBtn = document.getElementById('confirmButton');
+            const cancelBtn = document.getElementById('cancelButton');
+            const okBtn = document.getElementById('okButton');
+
+            // Reset classes
+            iconDiv.className = 'popup-icon';
+
+            // Tambahkan class sesuai type
+            iconDiv.classList.add(config.type);
+
+            // Set konten popup
+            title.textContent = config.title;
+            message.textContent = config.message;
+
+            // Atur tampilan tombol
+            if (config.type === 'confirm') {
+                confirmBtn.style.display = 'inline-block';
+                cancelBtn.style.display = 'inline-block';
+                okBtn.style.display = 'none';
+
+                confirmBtn.onclick = () => {
+                    if (config.onConfirm) config.onConfirm();
+                    popup.style.display = 'none';
+                };
+
+                cancelBtn.onclick = () => {
+                    if (config.onCancel) config.onCancel();
+                    popup.style.display = 'none';
+                };
+            } else {
+                confirmBtn.style.display = 'none';
+                cancelBtn.style.display = 'none';
+                okBtn.style.display = 'inline-block';
+
+                okBtn.onclick = () => {
+                    if (config.onOk) config.onOk();
+                    popup.style.display = 'none';
+                };
+            }
+
+            popup.style.display = 'flex';
+        }
+
+        // Fungsi validasi form
+        function validateForm() {
+            const requiredFields = {
+                'name': 'Nama Pemesan',
+                'email': 'Email',
+                'phone': 'Telepon',
+                'address': 'Alamat',
+                'nama': 'Nama Penumpang',
+                'iden': 'No. Identitas',
+                'tgl': 'Tanggal Lahir',
+                'gender': 'Gender'
+            };
+
+            // Validasi field kosong
+            for (let [id, fieldName] of Object.entries(requiredFields)) {
+                const field = document.getElementById(id);
+                if (!field.value.trim()) {
+                    showPopup({
+                        type: 'error',
+                        title: 'Whoops!',
+                        message: `Isi ${fieldName} Terlebih Dahulu`,
+                        onOk: () => field.focus()
+                    });
+                    return false;
+                }
+            }
+
+            // Validasi email
+            const email = document.getElementById('email').value;
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                showPopup({
+                    type: 'error',
+                    title: 'Whoops!',
+                    message: 'Format Email Tidak Valid',
+                    onOk: () => document.getElementById('email').focus()
+                });
+                return false;
+            }
+
+            // Jika semua validasi berhasil, tampilkan konfirmasi
+            showPopup({
+                type: 'confirm',
+                title: 'Konfirmasi Pemesanan',
+                message: 'Anda akan memesan tiket (NP-131-1) KM.LABOBAR dengan keberangkatan Senin, 23 Desember 2024. Apakah data yang anda masukan sudah benar?',
+                onConfirm: () => window.location.href = 'pembayaran.html',
+                onCancel: () => console.log('Pemesanan dibatalkan')
+            });
+
+            return true;
+        }
+
+        // Event listener untuk tombol Lanjut
+        document.querySelector('.form-inpo button').addEventListener('click', function (e) {
+            e.preventDefault();
+            validateForm();
+        });
+    </script>
+
+    <div style="width: 103%; height: 0.5px; background-color: rgb(145, 145, 145); margin: 0; margin-top: 6%;"></div>
+    <footer style="margin-top: 1%;">
+        <div class="alamat">
+            <h4>PT PELNI (Persero) HQ</h4>
+            <p>Jl. Gajah Mada No. 14,<br>
+                Jakarta Pusat, 10130<br>
+                DKI Jakarta, Indonesia</p>
+        </div>
+
+        <div class="kontak">
+            <h4>Kontak Pusat</h4>
+            <p>T. 162 (Jabodetabek)<br>
+                F. +62 21 6385 4130<br>
+                E. infopelni162@pelni.co.id</p>
+        </div>
+
+        <div class="link">
+            <p>PPID</p>
+            <p>TENDER</p>
+            <p>KARIR</p>
+            <p>FAQ</p>
+            <p>Kantor Cabang</p>
+        </div>
+
+        <div class="medsos">
+            <h4>Media Sosial Kami</h4>
+            <div class="social-icons">
+                <img src="img/instagram.png" alt="Instagram">
+                <img src="img/social.png" alt="YouTube">
+                <img src="img/facebook.png" alt="Facebook">
+                <img src="img/twitter-alt.png" alt="Twitter">
+            </div>
+        </div>
+    </footer>
+    <div class="decorative-rectangle" style="width: 115.5%; margin-left: -8%;"></div>
+</body>
+
+</html>

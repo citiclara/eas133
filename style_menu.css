@@ -1,0 +1,90 @@
+.navbar {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    width: 100%;
+    text-decoration: none;
+    padding: 1rem 2rem;
+    justify-content: space-between;
+}
+
+.navbar .logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #D38282;
+    margin-left: 6%;
+    margin-right: 10%;
+    text-decoration: none;
+}
+
+.navbar .menu a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+    margin-left: 2rem;
+}
+
+
+footer {
+    padding: 40px 5%;
+    color: rgb(0, 0, 0);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    margin-left: 18%;
+    z-index: 100;
+    background-color: #fff;
+}
+
+.alamat h3 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.alamat p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #7c7c7c;
+}
+
+.kontak h3, .link h3, .medsos h3 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.kontak p, .link p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #7c7c7c;
+    margin-bottom: 8px;
+}
+
+.medsos .social-icons {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    margin-top: 5%;
+}
+
+.medsos .social-icons img {
+    width: 24px;
+    height: 24px;
+    transition: opacity 0.3s ease;
+}
+
+.medsos .social-icons img:hover {
+    opacity: 0.8;
+}
+
+.decorative-rectangle{
+    width: 100%;
+    height: 50px;
+    background-color: #D38282;
+    margin-left: -3%;
+}

@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservasi Tiket PELNI</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style_menu.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        .reservasi-form {
+            background: white;
+            padding: 3rem;
+            border: 1px solid rgba(0, 0, 0, 0.676);
+            border-radius: 8px;
+            max-width: 80%;
+            margin: 0 auto;
+        }
+
+        .travel-type {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            margin-bottom: 1rem;
+        }
+
+        .travel-type h4 {
+            color: #333;
+            font-weight: normal;
+        }
+
+        form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .form-item {
+            display: grid;
+            grid-template-columns: 50px 1fr;
+            /* Label width 150px, input takes rest */
+            align-items: center;
+        }
+
+        select,
+        input {
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+            color: #aeaeae;
+            width: 100%;
+        }
+
+        .passenger-container {
+            display: grid;
+            grid-template-columns: 150px 1fr;
+            align-items: start;
+            gap: 1rem;
+        }
+
+        .form-group-row {
+            display: grid;
+            grid-template-columns: 2fr;
+            /* Proporsi kolom: Tanggal, Passenger, Button */
+            gap: 1.5rem;
+            /* Jarak antar elemen */
+            align-items: center;
+            /* Selaraskan elemen secara vertikal */
+            margin-left: -9rem;
+        }
+
+        input[type="date"] {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        .passenger-inputs {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .passenger-input {
+            flex: 1;
+            position: relative;
+        }
+
+        button {
+            background-color: #b82837;
+            color: white;
+            padding: 0.75rem;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            cursor: pointer;
+            width: 100%;
+        }
+
+
+        .passenger-input input {
+            padding-left: 2rem;
+            text-align: center;
+        }
+
+        .passenger-icon {
+            position: absolute;
+            left: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 20px;
+        }
+
+        button {
+            background-color: #b82837;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            width: 30%;
+        }
+
+        img {
+            width: 72%;
+            margin-bottom: 2rem;
+            margin-left: 13%;
+            margin-top: 1%;
+        }
+
+        .popup-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .popup {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+        }
+
+        .popup img {
+            width: 90px;
+            height: 90px;
+            margin-bottom: 1rem;
+            margin-left: -2%;
+            margin-top: 2%;
+        }
+
+        .popup h1 {
+            margin-bottom: 1rem;
+        }
+
+        .popup p {
+            margin-bottom: 1.5rem;
+            color: #666;
+        }
+
+        .popup button {
+            background-color: #D38282;
+            color: white;
+            padding: 0.5rem 2rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            margin-left: 15rem;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="navbar" style="height: 9.5%;">
+        <div class="logo" style="margin-left: 7%; width: 36px;"><a href="home.html" style="text-decoration: none; color: #D38282;">PELNI</a></div>
+        <nav class="menu">
+            <a href="reservasi.html" style="margin-left: -11%;">Reservasi Tiket</a>
+            <a href="jasa logistik.html">Jasa Logistik</a>
+            <a href="layanan.html">Layanan</a>
+        </nav>
+    </header>
+    <main>
+        <img src="img/cover_w1920_h380_tw1923_th381_x17_y10_banner channel pembayaran new.jpg" alt="Channel Pembayaran">
+
+        <div class="reservasi-form">
+            <div class="travel-type">
+                <h4>Tujuan perjalanan</h4>
+                <h4 style="margin-left: -25%;">Keberangkatan</h4>
+            </div>
+
+            <form>
+                <!-- Baris untuk "Dari" dan "Ke" -->
+                <div class="form-group">
+                    <div class="form-item" style="width: 60%;">
+                        <label for="dari">Dari</label>
+                        <select id="dari" required>
+                            <option>Pilih Asal Kota/Pelabuhan</option>
+                            <option>Ambon</option>
+                        </select>
+                    </div>
+
+                    <div class="form-item" style="width: 60%;">
+                        <label for="ke">Ke</label>
+                        <select id="ke" required>
+                            <option>Pilih Tujuan Kota/Pelabuhan</option>
+                            <option>Surabaya</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Baris untuk Tanggal, Passenger, dan Button -->
+                <div class="form-group-row">
+                    <!-- Input Tanggal -->
+                    <input type="date" placeholder="Tanggal Berangkat">
+
+                    <!-- Input Passenger -->
+                    <div class="passenger-inputs">
+                        <div class="passenger-input">
+                            <input type="number" placeholder="Dewasa" min="0">
+                            <img src="img/partner_5387717.png" alt="Adult" class="passenger-icon">
+                        </div>
+                        <div class="passenger-input">
+                            <input type="number" placeholder="Bayi" min="0">
+                            <img src="img/crawling_3011749.png" alt="Baby" class="passenger-icon">
+                        </div>
+                        <!-- Button -->
+                        <button type="submit">Cari Pelayaran</button>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+
+        <!-- Pop-up -->
+        <div class="popup-overlay" id="errorPopup">
+            <div class="popup">
+                <img src="img/cross_12503683.png" alt="Error">
+                <h1>Whoops!</h1>
+                <p id="errorMessage">Mohon untuk melengkapi data terlebih dahulu</p>
+                <button onclick="closePopup()">OK</button>
+            </div>
+        </div>
+
+        <div style="width: 100%; height: 0.5px; background-color: rgb(145, 145, 145); margin: 0; margin-top: 6%;"></div>
+        <footer style="margin-top: 1%;">
+            <div class="alamat">
+                <h3>PT PELNI (Persero) HQ</h3>
+                <p>Jl. Gajah Mada No. 14,<br>
+                    Jakarta Pusat, 10130<br>
+                    DKI Jakarta, Indonesia</p>
+            </div>
+
+            <div class="kontak">
+                <h3>Kontak Pusat</h3>
+                <p>T. 162 (Jabodetabek)<br>
+                    F. +62 21 6385 4130<br>
+                    E. infopelni162@pelni.co.id</p>
+            </div>
+
+            <div class="link">
+                <p>PPID</p>
+                <p>TENDER</p>
+                <p>KARIR</p>
+                <p>FAQ</p>
+                <p>Kantor Cabang</p>
+            </div>
+
+            <div class="medsos">
+                <h3>Media Sosial Kami</h3>
+                <div class="social-icons">
+                    <img src="img/instagram.png" alt="Instagram">
+                    <img src="img/social.png" alt="YouTube">
+                    <img src="img/facebook.png" alt="Facebook">
+                    <img src="img/twitter-alt.png" alt="Twitter">
+                </div>
+            </div>
+        </footer>
+        <div class="decorative-rectangle" style="margin-left: 0.02%;"></div>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const form = document.querySelector('form');
+            const popup = document.getElementById('errorPopup');
+            const errorMessage = document.getElementById('errorMessage');
+
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                const dari = document.querySelector('#dari').value; // Mengambil nilai dari input 'Dari'
+                const ke = document.querySelector('#ke').value; // Mengambil nilai dari input 'Ke'
+                const tanggal = document.querySelector('input[type="date"]').value; // Mengambil nilai dari input tanggal
+                const dewasa = document.querySelector('input[placeholder="Dewasa"]').value; // Mengambil nilai dari input Dewasa
+                const bayi = document.querySelector('input[placeholder="Bayi"]').value; // Mengambil nilai dari input Bayi
+
+                // Validasi form untuk input yang kosong
+                if (dari === "Pilih Asal Kota/Pelabuhan" || dari === "") {
+                    showPopup('Pilih pelabuhan asal terlebih dahulu!');
+                    return;
+                }
+                if (ke === "Pilih Tujuan Kota/Pelabuhan" || ke === "") {
+                    showPopup('Pilih pelabuhan tujuan terlebih dahulu!');
+                    return;
+                }
+                if (!tanggal) {
+                    showPopup('Pilih tanggal keberangkatan terlebih dahulu!');
+                    return;
+                }
+                if (!dewasa || dewasa <= 0) {
+                    showPopup('Tentukan jumlah penumpang dewasa terlebih dahulu!');
+                    return;
+                }
+
+                // Jika semua validasi berhasil, buat URL dengan parameter
+                const searchParams = new URLSearchParams({
+                    dari: dari,
+                    ke: ke,
+                    tanggal: tanggal,
+                    dewasa: dewasa,
+                    bayi: bayi || 0
+                });
+
+                // Redirect ke halaman reservasi dengan parameter
+                window.location.href = `jadwal.html?${searchParams.toString()}`;
+            });
+
+            // Fungsi untuk menampilkan popup dengan pesan kesalahan
+            function showPopup(message) {
+                errorMessage.textContent = message;
+                popup.style.display = 'flex';
+            }
+
+            // Fungsi untuk menutup popup
+            window.closePopup = function () {
+                popup.style.display = 'none';
+            };
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pelni - Layanan</title>
+    <link rel="stylesheet" href="style_menu.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: white;
+            color: #333;
+        }
+
+        h5 {
+            font-size: 1.2em;
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        p {
+            margin: 5px 0;
+        }
+
+        .sidebar {
+            margin-top: 5%;
+            width: 20%;
+            padding: 20px;
+            height: -30%;
+            margin-left: 13%;
+            line-height: 2;
+        }
+
+        .sidebar p {
+            margin: 10px 0;
+            font-size: 11px;
+            color: #333;
+        }
+
+        .sidebar h5 {
+            margin-top: 20px;
+            font-size: 12px;
+            color: #333;
+        }
+
+        .container {
+            margin-left: 30%;
+            display: flex;
+            flex-wrap: wrap;
+            padding: 20px;
+            margin-top: -25%;
+            gap: 30px;
+        }
+
+        .card {
+            width: 25%;
+            background-color: #fff;
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            z-index: -100;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        .card img {
+            width: 100%;
+            height: 190%;
+            object-fit: cover;
+            box-shadow: inset 0 4 4px rgba(0, 0, 0, 0.5);/* Inner shadow */
+            z-index: -1;
+        }
+
+        .card-content {
+            padding: 20px;
+            width: 70%;
+            color: #fff;
+            margin-left: 10px;
+        }
+
+        .card-content p:first-child {
+            font-size: 20px;
+            font-weight: bold;
+            color: white;
+            margin-top: -240%;
+            font-style: italic;
+        }
+
+        .card-content p:last-child {
+            font-size: 10px;
+            color: #ffffff;
+            margin-top: 125%;
+            font-weight: 700;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="navbar" style="margin-top: -5%;">
+        <div class="logo" style="margin-left: 7%; width: 30px;"><a href="home.html" style="text-decoration: none; color: #D38282;">PELNI</a></div>
+        <nav class="menu">
+            <a href="reservasi.html" style="margin-left: -10.9%;">Reservasi Tiket</a>
+            <a href="jasa logistik.html">Jasa Logistik</a>
+            <a href="layanan.html">Layanan</a>
+        </nav>
+    </header>
+    <main>
+        <div class="sidebar">
+            <h5>_GAYA HIDUP</h5>
+            <p>WISATA BAHARI</p>
+            <p>MICE</p>
+            <h5>_LAYANAN LAINNYA</h5>
+            <p>HOTEL BAHTERA</p>
+            <p>GALANGAN KAPAL</p>
+            <p>PELNI ASET</p>
+            <p>KETENTUAN BAGASI</p>
+        </div>
+        <div class="container" style="margin-top: -20%;">
+            <div class="card">
+                <img src="img/likupang.jpeg" alt="likupang">
+                <div class="card-content">
+                    <p>Let's Go Likupang bersama PELNI Lifestyle</p>
+                    <p>Likupang, Surga tersembunyi di Sulawesi Utara</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="img/labuan-bajo.jpg" alt="labuan">
+                <div class="card-content">
+                    <p><br><br>Labuan Bajo Tour</p>
+                    <p>Hoping island di Labuan Bajo Bersama PELNI Lifestyle</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="img/kapal phinisi.jpg" alt="phinisi">
+                <div class="card-content">
+                    <p><br>Labuan Bajo Sunset Dinner & Music</p>
+                    <p>Makan malam di atas kapal Phinisi sambil Menikmati keindahan Labuan Bajo</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div style="width: 103%; height: 0.5px; background-color: rgb(145, 145, 145); margin: 0; margin-top: 20%;"></div>
+    <footer>
+        <div class="alamat">
+            <h3>PT PELNI (Persero) HQ</h3>
+            <p>Jl. Gajah Mada No. 14,<br>
+                Jakarta Pusat, 10130<br>
+                DKI Jakarta, Indonesia</p>
+        </div>
+
+        <div class="kontak">
+            <h3>Kontak Pusat</h3>
+            <p>T. 162 (Jabodetabek)<br>
+                F. +62 21 6385 4130<br>
+                E. infopelni162@pelni.co.id</p>
+        </div>
+
+        <div class="link">
+            <p>PPID</p>
+            <p>TENDER</p>
+            <p>KARIR</p>
+            <p>FAQ</p>
+            <p>Kantor Cabang</p>
+        </div>
+
+        <div class="medsos">
+            <h3>Media Sosial Kami</h3>
+            <div class="social-icons">
+                <img src="img/instagram.png" alt="Instagram">
+                <img src="img/social.png" alt="YouTube">
+                <img src="img/facebook.png" alt="Facebook">
+                <img src="img/twitter-alt.png" alt="Twitter">
+            </div>
+        </div>
+    </footer>
+    <div class="decorative-rectangle"></div>
+</body>
+
+</html>

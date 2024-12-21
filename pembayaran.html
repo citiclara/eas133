@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pelni - Tiket</title>
+    <link rel="stylesheet" href="style_menu.css">
+    <style>
+        .summary-section {
+            margin-top: 10%;
+            margin-left: 20%;
+            width: 500px;
+            height: 650px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .summary-header {
+            background-color: #e8e1e1;
+            padding: 15px;
+            border-radius: 4px 4px 0 0;
+        }
+
+        .summary-content {
+            padding: 40px;
+            margin-left: 2%;
+            gap: 22px;
+        }
+
+        .route-details {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+            width: 150%;
+            font-weight: 600;
+            font-size: 20px;
+        }
+
+        .schedule-container {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px 0;
+            gap: 40px;
+        }
+
+        .schedule {
+            margin-bottom: 15px;
+            width: 100%;
+            margin-top: 10%;
+        }
+
+        .schedule-label {
+            display: flex;
+            justify-content: space-between;
+            color: #888;
+            font-size: 15px;
+            margin-bottom: 2px;
+        }
+
+        .schedule-time {
+            display: flex;
+            justify-content: space-between;
+            font-size: 14px;
+        }
+
+        .total {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid #3d3d3d;
+        }
+
+        .price {
+            color: #4CAF50;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .schedule-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 20px;
+        }
+
+        .schedule-row .schedule {
+            flex: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="navbar" style="margin-top: -10%;">
+        <div class="logo"><a href="home.html" style="text-decoration: none; color: #D38282;">PELNI</a></div>
+        <nav class="menu">
+            <a href="reservasi.html" style="margin-left: -30%;">Reservasi Tiket</a>
+            <a href="jasa.html">Jasa Logistik</a>
+            <a href="layanan.html">Layanan</a>
+        </nav>
+    </header>
+    <main>
+
+        <div class="summary-section">
+            <div class="summary-header">
+                <h2 style="margin-left: 30%;">Detail Pemesanan</h2>
+            </div>
+            <div class="summary-content">
+                <div class="schedule-container">
+                    <div class="schedule" style="margin-top: -5%;">
+                        <div class="schedule-label">Senin, 23 Desember 2024</div>
+                        <div class="route-details">
+                            <div>(NP-131-1) KM.LABOBAR</div>
+                        </div>
+                        <div class="schedule-label">KELAS EKONOMI/E</div>
+                    </div>
+                </div>
+                <div style="line-height: 2rem;" class="schedule-label">
+                    <div class="schedule-label"> </div>
+                    <div class="schedule-label">Harga Satuan</div>
+                    <div class="schedule-label" style="font-weight: 700; color: 4E4141;">Total Harga</div>
+                </div>
+                <div style="line-height: 2rem;" class="schedule-label">
+                    <div class="schedule-label">1 Dewasa</div>
+                    <div class="schedule-label" style="font-weight: 700; color: 4E4141;">Rp. 742.000</div>
+                    <div class="schedule-label" style="font-weight: 700; color: 4E4141;">Rp. 742.000</div>
+                </div>
+                <div style="line-height: 2rem;" class="schedule-label">
+                    <div class="schedule-label">Biaya Admin</div>
+                    <div class="schedule-label" style="font-weight: 700; color: 4E4141;"></div>
+                    <div class="schedule-label" style="font-weight: 700; color: 4E4141;">Rp.0</div>
+                </div>
+                <div style="line-height: 2rem;" class="schedule-label">
+                    <div class="schedule-label" style="font-weight: 700; color: 4E4141;">Total Harga</div>
+                    <div class="schedule-label" style="font-weight: 700; color: 4E4141;"></div>
+                    <div class="schedule-label" style="font-weight: 700; color: 4E4141;">Rp. 742.000</div>
+                </div>
+    
+                <div class="total">
+                    <div>
+                        <div>Nama</div>
+                    </div>
+                    <div style="width: 45%;">Deck / No Kabih/ No Tempat Tidur</div>
+                </div>
+                <div class="total">
+                    <div>
+                        <div>---</div>
+                    </div>
+                    <div>5/5324/1</div>
+                </div>
+                <div class="schedule-row">
+                    <div class="schedule" style="line-height: 1.1rem;">
+                        <div class="schedule-label" style="font-size: 13px; font-weight: 700;">Berangkat</div>
+                        <div class="route-details">
+                            <div>AMBON (05:00)</div>
+                        </div>
+                        <div class="schedule-label" style="font-size: 11px;">Senin, 23 Desember 2024</div>
+                    </div>
+                    <div class="schedule" style="line-height: 1.1rem;">
+                        <div class="schedule-label" style="font-size: 13px; font-weight: 700;">Tiba</div>
+                        <div class="route-details">
+                            <div>SURABAYA (22:00)</div>
+                        </div>
+                        <div class="schedule-label" style="font-size: 11px;">Jumat, 27 Desember 2024</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <div style="width: 103%; height: 0.5px; background-color: rgb(145, 145, 145); margin: 0; margin-top: 6%;"></div>
+    <footer style="margin-top: 1%;">
+        <div class="alamat">
+            <h4>PT PELNI (Persero) HQ</h4>
+            <p>Jl. Gajah Mada No. 14,<br>
+                Jakarta Pusat, 10130<br>
+                DKI Jakarta, Indonesia</p>
+        </div>
+
+        <div class="kontak">
+            <h4>Kontak Pusat</h4>
+            <p>T. 162 (Jabodetabek)<br>
+                F. +62 21 6385 4130<br>
+                E. infopelni162@pelni.co.id</p>
+        </div>
+
+        <div class="link">
+            <p>PPID</p>
+            <p>TENDER</p>
+            <p>KARIR</p>
+            <p>FAQ</p>
+            <p>Kantor Cabang</p>
+        </div>
+
+        <div class="medsos">
+            <h4>Media Sosial Kami</h4>
+            <div class="social-icons">
+                <img src="img/instagram.png" alt="Instagram">
+                <img src="img/social.png" alt="YouTube">
+                <img src="img/facebook.png" alt="Facebook">
+                <img src="img/twitter-alt.png" alt="Twitter">
+            </div>
+        </div>
+    </footer>
+    <div class="decorative-rectangle" style="width: 115.5%; margin-left: -8%;"></div>
+</body>
+
+</html>
